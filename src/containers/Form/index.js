@@ -7,6 +7,7 @@ import Button, { BUTTON_TYPES } from "../../components/Button";
 const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500); })
 
 const Form = ({ onSuccess, onError }) => {
+
   const [sending, setSending] = useState(false);
   const sendContact = useCallback(
     async (evt) => {
@@ -23,7 +24,9 @@ const Form = ({ onSuccess, onError }) => {
     },
     [onSuccess, onError]
   );
+  
   return (
+    
     <form onSubmit={sendContact}>
       <div className="row">
         <div className="col">

@@ -13,7 +13,9 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+
+  const {data} = useData()
+  
   return <>
     <header>
       <Menu />
@@ -106,8 +108,8 @@ const Page = () => {
         >
           {({ setIsOpened }) => (
             <Form
-              onSuccess={() => setIsOpened(true)}
-              onError={() => null}
+              onSuccess={(value) => setIsOpened(value)}
+              onError={(value) => setIsOpened(value)}
             />
           )}
         </Modal>
@@ -117,9 +119,9 @@ const Page = () => {
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
+          imageSrc={data?.events[1].cover}
+          title={data?.events[1].title}
+          date={new Date(data?.events[1].date)}
           small
           label="boom"
         />
