@@ -15,6 +15,12 @@ import { useData } from "../../contexts/DataContext";
 const Page = () => {
 
   const {data} = useData()
+
+  const last = "";
+
+  //fonction reduce à utiliser
+
+
   
   return <>
     <header>
@@ -108,8 +114,8 @@ const Page = () => {
         >
           {({ setIsOpened }) => (
             <Form
-              onSuccess={(value) => setIsOpened(value)}
-              onError={(value) => setIsOpened(value)}
+              onSuccess={() => {setIsOpened(true)}}
+              onError={() => {setIsOpened(null)}}
             />
           )}
         </Modal>
@@ -119,9 +125,9 @@ const Page = () => {
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         <EventCard
-          imageSrc={data?.events[1].cover}
-          title={data?.events[1].title}
-          date={new Date(data?.events[1].date)}
+          imageSrc={data?.events.cover}
+          title={data?.title}
+          date={data?.date}
           small
           label="boom"
         />
