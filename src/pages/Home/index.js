@@ -14,15 +14,24 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
 
-  const {data} = useData()
+  const data = useData()
 
-  const last = "";
-
-  //fonction reduce à utiliser
-
-
+  const last = 
   
-  return <>
+    data && data.events && data.events.length > 0 ? 
+
+      data.events.reduce((latest, current) => {
+        const lastDate = new Date (latest.date)
+        const indexDate = new Date (current.date)
+
+        return indexDate > lastDate  ? current : latest
+      })
+      
+      : 
+      
+      null;
+  
+  return (<>
     <header>
       <Menu />
     </header>
@@ -124,13 +133,14 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={data?.events.cover}
-          title={data?.title}
-          date={data?.date}
+        {last && (<EventCard
+          imageSrc={last?.cover}
+          imageAlt={last?.description}
+          title={last?.title}
+          date={new Date(last?.date)}
           small
-          label="boom"
-        />
+          label={last?.type}
+        />)}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
@@ -163,6 +173,7 @@ const Page = () => {
       </div>
     </footer>
   </>
+)
 }
 
 export default Page;
