@@ -11,6 +11,7 @@ const EventCard = ({
   label,
   small = false,
   ...props
+<<<<<<< HEAD
 }) => {
 
   console.log('imageSrc:', imageSrc);
@@ -19,6 +20,9 @@ const EventCard = ({
   console.log("Props reçues par EventCard :", { imageSrc, imageAlt, date, title, label });
 
 (
+=======
+}) => (
+>>>>>>> e2d933c4405696e5abc2d05d8187441fb802cab3
 
     <div
       data-testid="card-testid"
@@ -35,7 +39,10 @@ const EventCard = ({
       </div>
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+>>>>>>> e2d933c4405696e5abc2d05d8187441fb802cab3
 
 EventCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
