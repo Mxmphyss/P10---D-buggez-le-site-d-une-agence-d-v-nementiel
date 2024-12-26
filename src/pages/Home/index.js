@@ -13,12 +13,11 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-
   const { data } = useData();
 
   const lastPerformance = data?.events.sort(
     (evtA, evtB) => new Date(evtA.date) < new Date(evtB.date)
-  ); 
+  );
 
   return (
     <>
@@ -59,11 +58,15 @@ const Page = () => {
           </div>
         </section>
         <section className="EventsContainer">
-          <h2 className="Title" id="nos-realisations">Nos réalisations</h2>
+          <h2 className="Title" id="nos-realisations">
+            Nos réalisations
+          </h2>
           <EventList />
         </section>
         <section className="PeoplesContainer">
-          <h2 className="Title" id="notre-equipe">Notre équipe</h2>
+          <h2 className="Title" id="notre-equipe">
+            Notre équipe
+          </h2>
           <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
           <div className="ListContainer">
             <PeopleCard
@@ -103,7 +106,7 @@ const Page = () => {
           <Modal
             Content={
               <div className="ModalMessage--success">
-                <div>Message envoyé !</div>
+                <p>Message envoyé !</p>
                 <p>
                   Merci pour votre message nous tâcherons de vous répondre dans
                   les plus brefs délais
@@ -111,10 +114,8 @@ const Page = () => {
               </div>
             }
           >
-            {({ setIsOpened}) => (
-               
+            {({ setIsOpened }) => (
               <Form onSuccess={() => setIsOpened(true)} onError={() => null} />
-               
             )}
           </Modal>
         </div>
@@ -131,17 +132,20 @@ const Page = () => {
               label={lastPerformance?.[0].type}
             />
           )}
-
         </div>
         <div className="col contact">
           <h3>Contactez-nous</h3>
-          
-          <a href="https://goo.gl/maps/FyCWp5uRpWPMeGwq9">45 avenue de la République, 75000 Paris</a>
 
-         <a href="tel:0123456789">01 23 45 67 89</a>
-         
-          <a className="mail" href="mailto:contact@77events.com"  >contact@77events.com</a>
-       
+          <a href="https://goo.gl/maps/FyCWp5uRpWPMeGwq9">
+            45 avenue de la République, 75000 Paris
+          </a>
+
+          <a href="tel:0123456789">01 23 45 67 89</a>
+
+          <a className="mail" href="mailto:contact@77events.com">
+            contact@77events.com
+          </a>
+
           <div>
             <a href="#twitch">
               <Icon name="twitch" />

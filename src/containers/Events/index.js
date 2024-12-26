@@ -40,7 +40,6 @@ const EventList = () => {
   const typeList = new Set(data?.events.map((event) => event.type));
 
   // eslint-disable-next-line
-  console.log(filteredEvents)
 
   return (
     <>
