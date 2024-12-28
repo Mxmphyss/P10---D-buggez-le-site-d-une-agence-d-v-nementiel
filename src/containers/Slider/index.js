@@ -6,7 +6,7 @@ import "./style.scss";
 
 const Slider = () => {
   const { data } = useData();
-  
+
   const [index, setIndex] = useState(0);
 
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
@@ -28,9 +28,8 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        <>
+        <div key={event.date}>
           <div
-            key={event.id || `${event.title}-${idx}`}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
@@ -57,7 +56,7 @@ const Slider = () => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
